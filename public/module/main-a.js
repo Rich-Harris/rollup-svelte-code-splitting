@@ -10,9 +10,13 @@ import("./apply-color-and-message.js").then(({ default: apply }) => {
 	apply('#a [data-used-by="both"]', usedByBoth);
 });
 
-import("./Widget.html.js").then(({ default: Widget }) => {
-	new Widget({
-		target: document.querySelector('#widget-container')
+function loadTheComponent() {
+	import("./Widget.html.js").then(({ default: Widget }) => {
+		new Widget({
+			target: document.querySelector('#widget-container')
+		});
 	});
-});
+}
+
+loadTheComponent();
 //# sourceMappingURL=./main-a.js.map

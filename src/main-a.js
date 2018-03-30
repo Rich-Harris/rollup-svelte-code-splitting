@@ -6,8 +6,12 @@ import('./dynamically-imported/apply-color-and-message.js').then(({ default: app
 	apply('#a [data-used-by="both"]', usedByBoth);
 });
 
-import('./Widget.html').then(({ default: Widget }) => {
-	new Widget({
-		target: document.querySelector('#widget-container')
+function loadTheComponent() {
+	import('./Widget.html').then(({ default: Widget }) => {
+		new Widget({
+			target: document.querySelector('#widget-container')
+		});
 	});
-});
+}
+
+loadTheComponent();

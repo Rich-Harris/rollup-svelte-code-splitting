@@ -17,11 +17,15 @@ System.register(['./chunk1.js'], function (exports, module) {
 				apply('#a [data-used-by="both"]', usedByBoth);
 			});
 
-			module.import("./Widget.html.js").then(({ default: Widget }) => {
-				new Widget({
-					target: document.querySelector('#widget-container')
+			function loadTheComponent() {
+				module.import("./Widget.html.js").then(({ default: Widget }) => {
+					new Widget({
+						target: document.querySelector('#widget-container')
+					});
 				});
-			});
+			}
+
+			loadTheComponent();
 
 		}
 	};
